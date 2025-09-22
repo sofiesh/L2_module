@@ -1,5 +1,5 @@
 {
-  "name": "l2_module",
+  "name": "l2m",
   "version": "1.0.0",
   "description": "A module",
   "main": "index.js",
@@ -14,5 +14,7 @@
   "license": "ISC",
   "dependencies": {
     "@lnu/eslint-config": "^1.1.10"
-  }
+  },
+  "devDependencies": {},
+  "keywords": []
 }

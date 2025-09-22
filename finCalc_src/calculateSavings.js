@@ -16,15 +16,15 @@ export function validateSavingsInput (userName, savingsGoal, currentSavings, mon
     throw new Error('A user name must be provided.')
   }
 
-  if (savingsGoal <= 0) {
+  if (isNaN(savingsGoal) || savingsGoal <= 0) {
     throw new Error('Goal must be greater than 0')
   }
 
-  if (currentSavings < 0) {
+  if (isNaN(currentSavings) || currentSavings < 0) {
     throw new Error('Current savings must be greater than or equal to 0')
   }
 
-  if (monthsToReachGoal <= 0) {
+  if (isNaN(monthsToReachGoal) || monthsToReachGoal <= 0) {
     throw new Error('Months must be greater than 0')
   }
 }

@@ -13,16 +13,16 @@
  * @throws {Error} If the price to buy is not a positive number.
  */
 export function validateRentOrBuyInput (priceToBuy, priceToRentPerMonth, lengthOfPeriodMonths) {
-  if (typeof priceToBuy !== 'number' || priceToBuy < 0) {
+  if (isNaN(priceToBuy) || priceToBuy < 0) {
     throw new Error('The price to buy must be a positive number.')
   }
 
-  if (typeof priceToRentPerMonth !== 'number' || priceToRentPerMonth < 0) {
+  if (isNaN(priceToRentPerMonth) || priceToRentPerMonth < 0) {
     throw new Error('The price to rent per month must be a positive number.')
   }
 
-  if (typeof lengthOfPeriodMonths !== 'number' || lengthOfPeriodMonths < 0) {
-    throw new Error('The length of the period in months must be a positive number.')
+  if (isNaN(lengthOfPeriodMonths) || lengthOfPeriodMonths < 0) {
+    throw new Error('The length of the rental period(months) must be a positive number.')
   }
 }
 
@@ -35,7 +35,7 @@ export function validateRentOrBuyInput (priceToBuy, priceToRentPerMonth, lengthO
  * @returns {object} An object with parameters to compare the costs of renting and buying.
  */
 export function rentOrBuy (priceToBuy, priceToRentPerMonth, lengthOfPeriodMonths) {
-  validateInput(priceToBuy, priceToRentPerMonth, lengthOfPeriodMonths)
+  validateRentOrBuyInput(priceToBuy, priceToRentPerMonth, lengthOfPeriodMonths)
 
   const totalCostToBuy = priceToBuy
   const totalCostToRent = priceToRentPerMonth * lengthOfPeriodMonths

@@ -16,7 +16,13 @@ export function validateNetPresentValueInputs (cashFlows, rate) {
     throw new Error('Cash flows must be a non-empty array')
   }
 
-  if (rate <= 0) {
+  cashFlows.forEach((cf) => {
+    if (typeof cf !== 'number' || isNaN(cf)) {
+      throw new Error('All cash flows must be valid numbers')
+    }
+  })
+
+  if (rate <= 0 || isNaN(rate)) {
     throw new Error('Rate must be greater than 0')
   }
 
